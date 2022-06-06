@@ -1,0 +1,35 @@
+@startuml
+
+Class Cache {
+}
+
+Class Location {
+}
+
+Class Organisation {
+}
+
+Class Person {
+}
+
+Class Resource {
+}
+
+Class Service {
+}
+
+Class Supplies {
+}
+
+
+Cache --* Supplies : consists of
+
+Location -- Location : accessibility
+
+Location ..> Cache    : provides
+Location ..> Resource : provides
+Location ..> Service  : provides
+
+Organisation --o Person
+
+@enduml
