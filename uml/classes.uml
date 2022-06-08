@@ -4,6 +4,7 @@ Class Cache {
 }
 
 Class Location {
+   -Point coordinates
 }
 
 Class Organisation {
