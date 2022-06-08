@@ -37,4 +37,7 @@ Resource --> Service
 
 Organisation -o Person
 
+Location <.. Organisation
+Location <.. Person
+
 @enduml
