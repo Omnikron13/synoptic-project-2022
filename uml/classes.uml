@@ -26,10 +26,12 @@ Cache --* Supplies : consists of
 
 Location -- Location : accessibility
 
-Location ..> Cache    : provides
-Location ..> Resource : provides
-Location ..> Service  : provides
+Organisation ..> Resource : provides
+Person       ..> Resource : provides
 
-Organisation --o Person
+Resource --> Cache
+Resource --> Service
+
+Organisation -o Person
 
 @enduml
