@@ -10,6 +10,9 @@ Class Organisation {
 }
 
 Class Person {
+   -String name
+   -String email
+   -String phone
 }
 
 Class Resource {
