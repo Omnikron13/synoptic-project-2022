@@ -1,0 +1,15 @@
+{
+  "name": "synoptic-2022",
+  "version": "0.0.1",
+  "description": "Synoptic Project 2022",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joey Sabey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
