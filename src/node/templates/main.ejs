@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title><!-- TODO: title (dynamic?) --></title>
+    <meta name="description" content="<!-- TODO: add description -->" />
+    <meta name="author" content="Joey Sabey" />
+    <meta name="author" content="Cameron Liu" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <% css.forEach(function(name) { %>
+    <%-    include('partials/cssTag', {name: name}) %>
+    <% }); %>
+</head>
+<body>
+    <header id="header" role="banner">
+        <h1>CCC Summary</h1>
+
+        <%- include('partials/menu', {page: page}) %>
+    </header>
+
+    <main id="main" role="main">
+        <%- include('pages/' + page + '_main') %>
+    </main>
+
+    <footer id="footer" role="contentinfo">
+        <!-- TODO: duplicate navigation for accessibility -->
+
+        <p><small>&copy; <!-- TODO: names/org -->. All rights reserved.</small></p>
+
+        <!-- TODO: additional footer links/credits/etc -->
+    </footer>
+
+    <% scripts.forEach(function(name) { %>
+    <%-    include('partials/scriptTag', {name: name}) %>
+    <% }); %>
+</body>
+</html>
