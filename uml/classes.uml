@@ -4,11 +4,13 @@ Class Cache {
 }
 
 Class Location {
+   -String name
    -Point coordinates
 }
 
 Class Organisation {
    -String name
+   -Location location
 }
 
 Class Person {
@@ -17,7 +19,14 @@ Class Person {
    -String phone
 }
 
+enum resource_type {
+   generic
+   cache
+   service
+}
+
 Class Resource {
+   -resource_type type
 }
 
 Class Service {
