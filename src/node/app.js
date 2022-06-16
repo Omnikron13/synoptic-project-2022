@@ -5,6 +5,7 @@ const PORT = 8080;
 import ejs from 'ejs';
 import express from 'express';
 import path from 'path';
+import * as pg from 'pg';
 import url from 'url';
 
 // Initialise express
@@ -32,7 +33,17 @@ app.get('/*.html', (req, res) => {
    });
 });
 
-// TODO: more specific routes
+// TODO: more specific routes, e.g. /api/table[/id] or similar
+
+
+// Connect to the database
+// TODO: this should perhaps be moved, and error checking should also be performed
+const { Pool } = pg.default;
+const db = new Pool();
+await db.connect();
+
+// TODO: the api will most likely have a better way to specify the schema
+await db.query('SET search_path = flood_dist');
 
 // Start the server
 app.listen(PORT, (error) => {
