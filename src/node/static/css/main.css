@@ -1,0 +1,157 @@
+/* Set useful defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Prevent page getting too wide to comfortably read */
+    display: grid;
+    grid-template-columns: 1fr minmax(40%, 52rem) 1fr;
+
+    /* Keep header at the bottom of the page */
+    grid-template-rows: max-content auto max-content;
+    min-height: 100vh;
+}
+
+/* Default margins for some spacing */
+h1, h2, h3, p {
+    margin: 0.75rem 0;
+}
+
+/* Change alignment and bump the size a touch so it stands out more` */
+main h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+
+/* Justify paragraphs by default to make pages look cleaner */
+p {
+    text-align: justify;
+}
+
+/* Header & footer span the whole page as bars of colour */
+#header, #footer {
+    grid-column-end: span 3;
+}
+
+/* Main sits in the centre column */
+#main {
+    grid-column: 2;
+}
+
+/* Ensure a little breathing room left & right of the page content */
+#main, #footer {
+    padding: 0 0.7rem;
+}
+
+/* Stick the page header to the top of the window for easy nav access */
+#header {
+    position: sticky;
+    top: 0;
+}
+
+/* This may be replaced by a graphical header/logo */
+#header > h1 {
+    margin-top: 0;
+    text-align: center;
+}
+
+/* Collapsible nav menu container for mobile only */
+#nav-container > summary {
+    display: none;
+    list-style-type: none;
+}
+
+/* Main Navigation menu */
+.menu,
+.submenu {
+    list-style: none;
+    padding: 0;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+}
+.menu > li {
+    display: inline-block;
+    text-align: center;
+    width: 6rem;
+}
+.menu > li > a,
+.menu > li summary {
+    display: inline-block;
+    padding: 0.5em 0;
+    text-decoration: none;
+    width: 100%;
+}
+.submenu > li {
+    left: -4rem;
+    min-width: 14rem;
+    position: relative;
+}
+.submenu > li > a {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+/* Dropdowns open over content rather than displacing */
+details.dropdown > summary + * {
+    position: absolute;
+}
+
+/* Align copyright etc. */
+#footer > p {
+    text-align: center;
+}
+
+/* Mobile (portrait) or other narrow screen styles */
+@media screen and (max-width: 500px) {
+    /* Shift nav upwards so the show/hide icon sits top right */
+    #nav-container {
+        position: relative;
+        top: -3.5rem;
+        margin-bottom: -3.5rem;
+    }
+
+    /* Make the nav menu collapsible */
+    #nav-container > summary {
+        display: list-item;
+
+        /* Style the icon as a burger menu */
+        text-align: right;
+        padding-right: 0.9rem;
+    }
+
+    /* Switch to close icon when menu is open */
+    #nav-container[open] > summary {
+        opacity: 0.7;
+    }
+
+    #burger-menu {
+        margin-bottom: 0.2rem;
+        margin-top: 0.6rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Make the menu full width and stacked vertically */
+    .menu {
+        flex-direction: column;
+    }
+    .menu > li {
+        width: 100%;
+    }
+    .submenu > li {
+        /* Reset positioning used to center on desktop */
+        position: initial;
+    }
+
+    /* Dropdowns displace content down instead of opening over it */
+    details.dropdown > summary + * {
+        position: static;
+    }
+}
