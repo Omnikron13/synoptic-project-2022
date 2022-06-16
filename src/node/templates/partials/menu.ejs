@@ -1,0 +1,33 @@
+<% var current = item => item == page ? 'aria-current="page" tabindex="0"' : 'href="' + item + '.html"' %>
+<details id="nav-container" open>
+    <summary><img id="burger-menu" alt="Burger menu" src="img/burger.svg" /></summary>
+    <nav role="navigation" aria-label="Main Navigation">
+        <ul class="menu">
+            <li>
+                <a <%- current('index') %>>Home</a>
+            </li>
+            <li>
+                <details class="dropdown">
+                    <summary><a class="chapters-dropdown">Submenu</a></summary>
+                    <ol class="submenu">
+                        <li>
+                            <a <%- current('item1') %>>Item 1</a>
+                        </li>
+                        <li>
+                            <a <%- current('item2') %>>Item 2</a>
+                        </li>
+                        <li>
+                            <a <%- current('item3') %>>Item 3</a>
+                        </li>
+                    </ol>
+                </details>
+            </li>
+            <li>
+                <a <%- current('team') %>>Page 2</a>
+            </li>
+            <li>
+                <a <%- current('signup') %>>Page 3</a>
+            </li>
+        </ul>
+    </nav>
+</details>
